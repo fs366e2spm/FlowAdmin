@@ -8,6 +8,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Hide notice if previously dismissed
+  if (localStorage.getItem("privacyNoticeDismissed") === "true") {
+    privacyNotice.style.display = "none";
+  }
+
+  if (closePrivacyNoticeButton) {
+    closePrivacyNoticeButton.addEventListener("click", function () {
+      privacyNotice.style.display = "none";
+      localStorage.setItem("privacyNoticeDismissed", "true");
+    });
+  }
+
   // Retrieve and set the last used environment ID
   const savedEnvironmentId = localStorage.getItem("environmentId");
   if (savedEnvironmentId) {
@@ -56,11 +68,6 @@ $(document).ready(function () {
   let environmentId = '';
   let editorVersion = 'true';
   let flowsData = [];
-
-    // Initialize button handlers after DOM is ready
-    document.addEventListener("DOMContentLoaded", function () {
-
-    });
 
   function initialize() {
     const signInButton = document.getElementById('signInButton');
