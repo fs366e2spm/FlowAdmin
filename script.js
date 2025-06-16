@@ -1,3 +1,6 @@
+const AZURE_CLIENT_ID = '38442c9b-62e6-44a9-a756-effd91ef7b82'; // Replace with your own
+const REDIRECT_URI = location.origin + location.pathname;       // Defaults to current page
+
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize Privacy Notice
   const closePrivacyNoticeButton = document.getElementById("closePrivacyNotice");
@@ -45,8 +48,8 @@ $(document).ready(function () {
   // MSAL configuration
   const msalConfig = {
     auth: {
-      clientId: '38442c9b-62e6-44a9-a756-effd91ef7b82', // Replace with your Application (client) ID
-      redirectUri: location.origin + location.pathname, // Your redirect URI
+      clientId: AZURE_CLIENT_ID, // Replace with your Application (client) ID
+      redirectUri: REDIRECT_URI + location.pathname, // Your redirect URI
     },
     cache: {
       cacheLocation: 'sessionStorage', // This configures where your cache will be stored
