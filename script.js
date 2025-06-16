@@ -410,17 +410,32 @@ $(document).ready(function () {
         const properties = flow.properties || {};
         const displayName = properties.displayName || 'N/A';
         const state = properties.state || 'Unknown';
+	    const definitionSummary = properties.definitionSummary || {};
+	    const triggers = definitionSummary.triggers || [];
+	    const actions = definitionSummary.actions || [];
+		
+        // Extract from first trigger (if available)
+	    const trigger = triggers.length > 0 ? triggers[0] : {};
+	    const triggerType = trigger.type || '';
+	    const triggerKind = trigger.kind || '';
+	    const operationId = trigger.metadata?.operationMetadataId || '';
+	    const actionCount = actions.length;		
+		
         const editLink = `https://make.powerautomate.com/environments/${encodeURIComponent(
           environmentId
         )}/flows/shared/${encodeURIComponent(name)}?v3=${editorVersion}`; // Construct URL with v3 parameter
   
-        return {
-          displayName,
-          name,
-          state,
-          editLink,
-          ...properties, // Include all other properties for reference
-        };
+		return {
+		 displayName,
+		 name,
+		 state,
+		 editLink,
+		 triggerType,
+		 triggerKind,
+		 operationId,
+		 actionCount,
+		 ...properties,
+		};
       });
   
       if (gridContainer.data('dxDataGrid')) {
