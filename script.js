@@ -1,6 +1,7 @@
 const AZURE_CLIENT_ID = '38442c9b-62e6-44a9-a756-effd91ef7b82'; // Replace with your own
 const REDIRECT_URI = location.origin + location.pathname;       // Defaults to current page
 
+
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize Privacy Notice
   const closePrivacyNoticeButton = document.getElementById("closePrivacyNotice");
