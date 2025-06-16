@@ -48,8 +48,8 @@ $(document).ready(function () {
   // MSAL configuration
   const msalConfig = {
     auth: {
-      clientId: AZURE_CLIENT_ID, // Replace with your Application (client) ID
-      redirectUri: REDIRECT_URI + location.pathname, // Your redirect URI
+      clientId: AZURE_CLIENT_ID, 
+      redirectUri: REDIRECT_URI, 
     },
     cache: {
       cacheLocation: 'sessionStorage', // This configures where your cache will be stored
