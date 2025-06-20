@@ -92,11 +92,3 @@ Then visit: `http://localhost:8080`
 
 This project is licensed under the [MIT License](LICENSE).  
 Feel free to use, modify, and share.
-
-## 📊 Optional: Disable Analytics
-
-This app supports [Plausible Analytics](https://plausible.io), a lightweight and privacy-respecting web analytics tool.  
-To disable it, comment the following line in `index.html`:
-
-```html
-<script defer data-domain="yourdomain.com" src="https://plausible.io/js/script.js"></script>
