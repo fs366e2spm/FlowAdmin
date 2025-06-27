@@ -30,7 +30,7 @@ To authenticate with Microsoft, each user should register their own Azure AD app
 
 #### Steps:
 
-1. Go to [Azure Portal](https://portal.azure.com) → **Azure Active Directory** → **App registrations**
+1. Go to [Azure Portal](https://portal.azure.com) → **App registrations**
 2. Click **New registration**
 3. Fill out:
    - **Name:** `FlowAdminTool` (or any name)
@@ -42,10 +42,15 @@ To authenticate with Microsoft, each user should register their own Azure AD app
 5. After registration:
    - Go to **API permissions**
    - Click **Add a permission**
-   - Choose **APIs my organization uses**
-   - Search: `flow.microsoft.com`
-   - Select **Power Automate Service**
-   - Add the permission: `user_impersonation`
+   - Add the following **delegated** permissions:
+     - **Microsoft Graph**:
+       - `openid`
+       - `profile`
+     - **Power Automate Service**:
+       - `Flows.Read.All`
+       - `Flows.Manage.All`
+       - `Activity.Read.All`
+   - Click **Grant admin consent** if required by your organization's policy
 6. In **Overview**, copy your `Application (client) ID`
 
 ---
